@@ -1,58 +1,69 @@
-const path = require('path');
-const http = require('http');
-var fs = require('fs');
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
 
-const server = http.createServer(function(req, res) {
-console.log(req.url);    if (req.url === '/') {
+const express = require('express')
+const app = express()
+const bcrypt = require('bcrypt')
+const expressLayouts = require('express-ejs-layouts')
 
-        fs.readFile(__dirname + '/public/index.html', function (err, data) {
-            if (err) console.log(err);
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.write(data);
-            res.end();
-          });
+const indexRouter = require('./routes/index')
+
+const users = []
+
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+app.set('layout', 'layouts/layout')
+app.use(expressLayouts)
+app.use(express.static('public'))
+
+// console.log(process.env.DATABASE_URL);
+
+const mongoose = require('mongoose')
+mongoose.connect(process.env.DATABASE_URL)
+const db = mongoose.connection
+db.on('error', error => console.error(error))
+db.once('open', () => console.log('Connected to Mongoose'))
+
+
+app.use('/', indexRouter)
+
+app.use(express.urlencoded({ extended: false}))
+
+
+app.get('/signup', (req, res) => {
+    res.render('signup.ejs')
+})
+
+app.post('/signup', async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        users.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        })
+        res.redirect('/login')
+    } catch {
+        res.redirect('/signup')
     }
-  
-    else if (req.url === '/style.css') {
-        fs.readFile(__dirname + '/public/css/style.css', function (err, data) {
-            if (err) console.log(err);
-            res.writeHead(200, {'Content-Type': 'text/css'});
-            res.write(data);
-            res.end();
-        });
-    }
+    console.log(users);
+    
+})
 
-    else if(req.url === '/script.js') {
-        fs.readFile(__dirname + '/public/js/script.js', function (err, data) {
-            if (err) console.log(err);
-            res.writeHead(200, {'Content-Type': 'text/javascript'});
-            res.write(data);
-            res.end();
-        });
-    }
+app.get('/login', (req, res) => {
+    res.render('login.ejs')
+})
 
-    else if (req.url === '/login.html') {
-        fs.readFile(__dirname + '/public/login.html', function (err, data) {
-            if (err) console.log(err);
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.write(data);
-            res.end();
-        });
-    }
 
-    else if (req.url === '/assets/img_temp/img2.jpg') {
-        fs.readFile(__dirname + '/public/assets/img_temp/img2.jpg', function (err, data) {
-            if (err) console.log(err);
-            res.writeHead(200, {'Content-Type': 'image/jpg'});
-            res.write(data);
-            res.end();
-        });
-    }
+app.post('/login', (req, res) => {
+    //res.send()
+})
 
-    else {
-        res.writeHead(404);
-        res.end();
-    }
-});
+app.get('/profile', (req, res) => {
+    res.render('profile.ejs', { username: 'Ljubljana'})
+})
 
-server.listen(5000);
+app.listen(process.env.PORT || 5000)
+console.log(`Server listening on port ${process.env.PORT || 5000}...`)

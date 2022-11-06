@@ -1,15 +1,15 @@
 let posts = [
     {
         name : 'Stanislav Petrov',
-        img : '/assets/img_temp/img1.jpg',
+        img : '/assets/img1.jpg',
         dateID : '1667598027425',
         message : 'Test!!!'
     },
     {
         name : 'Ljubljana Todorova',
-        img : '/assets/img_temp/img2.jpg',
+        img : '/assets/img2.jpg',
         dateID : '1667598027425',
-        message : 'Test!!!'
+        message : 'Test hiu uiofh ogio gei fgifg wiheri fhiygf ofgd iogyiwg iowg rwiegr wiog !!!'
     }
 ]
 
