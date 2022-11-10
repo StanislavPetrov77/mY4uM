@@ -57,16 +57,16 @@ app.post('/signup', async (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-    res.render('login.ejs')
+    res.render('login')
 })
 
 
 app.post('/login', (req, res) => {
-    //res.send()
+    res.render('index', { username: 'Stanislav Petrov'})
 })
 
 app.get('/profile', (req, res) => {
-    res.render('profile.ejs', { username: 'Ljubljana'})
+    res.render('profile', { username: 'Ljubljana' })
 })
 
 app.listen(process.env.PORT || 5000)

@@ -1,18 +1,23 @@
 :root {
     --corner-radius: 8px;
-    --inside-border-color: rgb(244, 244, 244);
+    --menu-background-color: lightblue;
+    --background-color: rgb(45, 165, 99);
+    --post-inside-border-color: rgb(244, 244, 244);
+    --post-content-color: white;
+    --post-header-color: rgb(250, 246, 246);
 }
 
 body {
-    background-color: lightyellow;
+    background-color: var(--background-color);
 }
 
 .top-menu {
     color: blue;
-    background-color: lightblue;
+    background-color: var(--menu-background-color);
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
     margin: 10px;
     border-radius:  var(--corner-radius);
@@ -27,6 +32,9 @@ body {
     transition: 0.5s;
 }
 
+.top-menu li a {
+    text-decoration: none;
+}
 .top-menu li:hover {
     color: lightyellow;
     background-color: darkblue;
@@ -53,8 +61,8 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding: 5px 0px;
-    background-color: rgb(250, 246, 246);
-    border-bottom: 1px solid var(--inside-border-color);
+    background-color: var(--post-header-color);
+    border-bottom: 1px solid var(--post-inside-border-color);
     border-top-left-radius: var(--corner-radius);
     border-top-right-radius: var(--corner-radius);
 }
@@ -65,7 +73,7 @@ body {
 
 .post-content {
     display: flex;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--post-content-color);
     border-bottom-right-radius: var(--corner-radius);
     border-bottom-left-radius: var(--corner-radius);
 }
@@ -80,8 +88,42 @@ body {
 .post-text {
     padding: 10px 10px;
     margin: 0px;
-    border-left: 1px solid var(--inside-border-color);
+    border-left: 1px solid var(--post-inside-border-color);
 }
 
 
+
+.modal {
+    text-align: center;
+    position: fixed;
+    top: 200px; /*calc(100% - 30px)*/
+    left: 35%;
+    background-color: rgb(250, 246, 246);
+    box-shadow: 5px 5px 30px rgb(64, 64, 64);
+    border-radius: var(--corner-radius);
+
+    transform: translateY(0);
+    transition: 0.5s ease-out;
+}
+
+.end-state .modal {
+    /* transform: translateY(200%); */
+    display: none;
+}
+
+.form-row {
+    margin: 5px 10px;
+    text-align: right;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.form-row label {
+    margin-right: 10px;
+}
+
+.form-buttons {
+    margin: 10px;
+    text-align: right;
+}
 
