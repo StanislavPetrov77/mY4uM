@@ -1,50 +1,68 @@
 :root {
-    --corner-radius: 8px;
+    --corner-radius: 5px;
     --menu-background-color: lightblue;
     --background-color: rgb(45, 165, 99);
-    --post-inside-border-color: rgb(244, 244, 244);
+    --post-inside-border-color: rgb(228, 228, 228);
     --post-content-color: white;
-    --post-header-color: rgb(250, 246, 246);
+    --post-header-color: rgb(240, 246, 246);
 }
 
 body {
     background-color: var(--background-color);
+    margin: 0;
 }
 
-.top-menu {
+.header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    color: blue;
+    background-color: var(--menu-background-color);
+}
+
+.header p {
+    position: sticky;
+    top: 0;
+    background-color: linen;
+    font-size: 32px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu {
     color: blue;
     background-color: var(--menu-background-color);
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     padding: 0;
-    margin: 10px;
-    border-radius:  var(--corner-radius);
+    margin: 0px 0px 0px 0px;
 }
 
-.top-menu li {
+.menu li {
     list-style-type: none;
     list-style-position: inside;
-    padding: 10px 40px;
-    margin: 0;
-    border-radius:  var(--corner-radius);
+    padding: 4px 0px;
+    margin: 0px;
+    border-right: 1px solid var(--post-inside-border-color);
     transition: 0.5s;
 }
 
-.top-menu li a {
+.menu li a {
     text-decoration: none;
 }
-.top-menu li:hover {
+.menu li:hover {
     color: lightyellow;
     background-color: darkblue;
     cursor: pointer;
 }
 
-
-
-
-
+/* Posts Styling */
 
 .post {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -60,7 +78,8 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 5px 0px;
+    padding: 0px 0px;
+    margin: 0px;
     background-color: var(--post-header-color);
     border-bottom: 1px solid var(--post-inside-border-color);
     border-top-left-radius: var(--corner-radius);
@@ -68,7 +87,7 @@ body {
 }
 
 .post-header p {
-    margin: 0px 10px;
+    margin: 0px 4px;
 }
 
 .post-content {
@@ -78,52 +97,59 @@ body {
     border-bottom-left-radius: var(--corner-radius);
 }
 
-.author-img {
+.post-img-container {
+    border-bottom-left-radius: var(--corner-radius);
+    background-color: var(--post-header-color);
+}
+
+.post-img {
     width: 40px;
     height: 40px;
     border-radius: 25%;
-    padding: 10px;
+    padding: 5px;
 }
 
 .post-text {
-    padding: 10px 10px;
+    padding: 4px 4px;
     margin: 0px;
     border-left: 1px solid var(--post-inside-border-color);
 }
 
+/* Sign Up & Log In Forms styling */
 
-
-.modal {
+.div-parent {
     text-align: center;
-    position: fixed;
-    top: 200px; /*calc(100% - 30px)*/
-    left: 35%;
-    background-color: rgb(250, 246, 246);
-    box-shadow: 5px 5px 30px rgb(64, 64, 64);
+}
+
+.div-form {
+    display: inline-block;
+    margin: 40px;
+    padding: 16px;
+    background-color: var(--post-header-color);
     border-radius: var(--corner-radius);
-
-    transform: translateY(0);
-    transition: 0.5s ease-out;
+    box-shadow: 6px 6px 15px;
 }
 
-.end-state .modal {
-    /* transform: translateY(200%); */
-    display: none;
+.div-form h2 {
+    padding-bottom: 10px;
+    margin: 0px;
 }
 
-.form-row {
-    margin: 5px 10px;
-    text-align: right;
+form .div-row {
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
 
-.form-row label {
-    margin-right: 10px;
+form label{
+    text-align: right;
+    padding-right: 6px;
 }
 
-.form-buttons {
-    margin: 10px;
+form input {
+    margin-bottom: 5px;
+}
+
+form .div-buttons {
     text-align: right;
 }
 

@@ -1,4 +1,20 @@
-        <div id="posts-area">
-        </div>
+<div id="posts-area">
+<%
+    if (posts != null) {
+        posts.slice().reverse().forEach( (post) => { %>
+            <div class="post">
+                <div class="post-header">
+                    <p class="post-text"><%= post.name %></p>
+                    <p><%= post.date %></p>
+                </div>
+                <div class="post-content">
+                    <div class="post-img-container">
+                        <img class="post-img" src="<%= post.img %>">
+                    </div>
+                    <p class="post-text"><%= post.content %></p>
+                </div>
+            </div>
+        <% }) } %>
+</div>
 
-        <script src="script.js"></script>
+<script src="script.js"></script>

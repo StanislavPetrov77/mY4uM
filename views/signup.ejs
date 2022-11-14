@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <h1>SIGN UP</h1>
-
+<div class="div-parent">
+    <div class="div-form">
+        <h2>Sign Up</h2>
         <form action="/signup" method="POST">
-            <div>
+            <div class="div-row">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div>
+            <div class="div-row">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div>
+            <div class="div-row">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Sign Up</button>
+            <div class="div-buttons">
+                <button type="cancel">Cancel</button>
+                <button type="submit">Sign Up</button>                
+            </div>
         </form>
-
-        <hr/>
-        <a href="login">Log In</a><a href="/">Home</a>
-    </body>
-</html>
+    </div>
+</div>

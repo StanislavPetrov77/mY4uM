@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <h1>Current user: <%= username %></h1>
-        <h2>Not yet implemented !</h2>
-    </body>
-</html>
+<% if (locals.user != null) { %>
+    <h1>User: <%= locals.user.name %></h1>
+    <h1>Email: <%= locals.user.email %></h1>
+    <h1>Password: <%= locals.user.password %></h1>
+    <% } %>
