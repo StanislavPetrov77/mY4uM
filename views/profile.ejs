@@ -1,5 +1,6 @@
-<% if (locals.user != null) { %>
-    <h1>User: <%= locals.user.name %></h1>
-    <h1>Email: <%= locals.user.email %></h1>
-    <h1>Password: <%= locals.user.password %></h1>
+<% if (user != null) { %>
+    <h4>User ID: <%= user.id %></h4>
+    <h4>User name: <%= user.name %></h4>
+    <h4>Email: <%= user.email %></h4>
+    <h4>User image: <img style="width: 80px" src="<%= user.img %>" alt="Profile picture"></h4>
     <% } %>

@@ -58,8 +58,15 @@ body {
 }
 .menu li:hover {
     color: lightyellow;
-    background-color: darkblue;
+    background-color: rgb(54, 54, 221);
     cursor: pointer;
+}
+
+.message {
+    margin: 6px;
+    padding: 0px;
+    text-align: center;
+    color: rgb(175, 200, 255);
 }
 
 /* Posts Styling */

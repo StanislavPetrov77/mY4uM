@@ -12,10 +12,12 @@ const indexRouter = require('./routes/indexRouter')
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
+
 app.use(expressLayouts)
 app.use(express.json())
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use('/favicon.ico', express.static('public/assets/img2.jpg'));
 
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL)
@@ -33,4 +35,4 @@ app.use('/', indexRouter)
 app.use(express.urlencoded({ extended: false }))
 
 app.listen(process.env.PORT || 5000)
-console.log('Port: 5000')
+console.log('Server is listening on PORT: 5000')
