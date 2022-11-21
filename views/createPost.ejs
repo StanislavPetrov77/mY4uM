@@ -1,13 +1,14 @@
 <div>
-    <h2>Create Post</h2>
-    <form action="/createPost" method="POST">
+    <form action="/createPost" method="POST" style="text-align: center;">
+        <h3>Create Post</h3>
         <div>
-            <label for="content">Content</label>
-            <input type="text" id="content" name="content" required>
+            <!-- <label for="content">Content</label> -->
+            <!-- <input type="text" id="content" name="content" required> -->
+            <textarea id="content" name="content" rows="6" cols="40" required></textarea>
         </div>
         <div>
-            <button type="cancel">Cancel</button>
-            <button type="submit">Create post</button>                
+            <!-- <button type="cancel">Cancel</button> -->
+            <button type="submit" style="height: 30px; width: 330px;">Create post</button>                
         </div>
     </form>
 </div>

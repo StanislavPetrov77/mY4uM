@@ -1,15 +1,25 @@
 :root {
     --corner-radius: 5px;
-    --menu-background-color: lightblue;
-    --background-color: rgb(45, 165, 99);
-    --post-inside-border-color: rgb(228, 228, 228);
-    --post-content-color: white;
-    --post-header-color: rgb(240, 246, 246);
+
+    --color-hue: 220;
+
+    --color: hsl(calc(var(--color-hue) + 180), 50%, 95%);
+    --background-color: hsl(var(--color-hue), 100%, 15%);
+
+    --menu-background-color: hsl(var(--color-hue), 75%, 25%);
+    --border-color: hsl(var(--color-hue), 0%, 50%);
+
+    --post-color: hsl(var(--color-hue), 50%, 15%);
+    --post-background-color: hsl(var(--color-hue), 0%, 80%);
+    --post-content-color: hsl(var(--color-hue), 50%, 15%);
+    --post-content-background-color: hsl(var(--color-hue), 25%, 90%);
 }
 
 body {
+    color: var(--color);
     background-color: var(--background-color);
     margin: 0;
+    padding: 0;
 }
 
 .header {
@@ -19,46 +29,44 @@ body {
     margin: 0px 0px 0px 0px;
     padding: 0px;
     font-size: 24px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    color: blue;
-    background-color: var(--menu-background-color);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .header p {
     position: sticky;
     top: 0;
-    background-color: linen;
     font-size: 32px;
     padding: 0px;
     margin: 0px;
 }
 
 .menu {
-    color: blue;
     background-color: var(--menu-background-color);
-    font-size: 16px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: grid;
-    align-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    padding: 0;
     margin: 0px 0px 0px 0px;
+    padding: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
 }
 
 .menu li {
     list-style-type: none;
     list-style-position: inside;
-    padding: 4px 0px;
-    margin: 0px;
-    border-right: 1px solid var(--post-inside-border-color);
-    transition: 0.5s;
+    padding: 6px 0px;
+    margin: 0px 0px;
+    border-right: 1px solid var(--border-color);
+    transition: 0.25s;
 }
 
 .menu li a {
+    color: var(--color);
+    margin: 0px;
+    padding: 0px;
     text-decoration: none;
 }
 .menu li:hover {
-    color: lightyellow;
-    background-color: rgb(54, 54, 221);
+    background-color: var(--background-color);
     cursor: pointer;
 }
 
@@ -66,75 +74,90 @@ body {
     margin: 6px;
     padding: 0px;
     text-align: center;
-    color: rgb(175, 200, 255);
+    color: var(--color);
 }
 
 /* Posts Styling */
 
 .post {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 9pt;
+    font-size: 10pt;
     display: flex;
     flex-direction: column;
     margin: 10px;
     border-radius: var(--corner-radius);
-    box-shadow: 5px 5px 30px rgb(64, 64, 64);
+    box-shadow: 5px 5px 20px hsl(var(--color-hue), 10%, 0%);
 }
 
 .post-header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 0px 0px;
+    padding: 0px;
     margin: 0px;
-    background-color: var(--post-header-color);
-    border-bottom: 1px solid var(--post-inside-border-color);
+    color: var(--post-color);
+    background-color: var(--post-background-color);
     border-top-left-radius: var(--corner-radius);
     border-top-right-radius: var(--corner-radius);
 }
 
-.post-header p {
-    margin: 0px 4px;
+.post p {
+    margin: 0px;
+    padding: 2px 4px;
 }
 
 .post-content {
     display: flex;
-    background-color: var(--post-content-color);
-    border-bottom-right-radius: var(--corner-radius);
-    border-bottom-left-radius: var(--corner-radius);
-}
-
-.post-img-container {
-    border-bottom-left-radius: var(--corner-radius);
-    background-color: var(--post-header-color);
+    color: var(--post-content-color);
+    background-color: var(--post-content-background-color);
+    /* border-bottom-right-radius: var(--corner-radius); */
+    /* border-bottom-left-radius: var(--corner-radius); */
 }
 
 .post-img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 25%;
-    padding: 5px;
+    padding: 4px;
 }
 
 .post-text {
-    padding: 4px 4px;
+    padding: 4px;
     margin: 0px;
-    border-left: 1px solid var(--post-inside-border-color);
 }
+
+.post-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    color: var(--post-color);
+    background-color: var(--post-background-color);
+    border-bottom-left-radius: var(--corner-radius);
+    border-bottom-right-radius: var(--corner-radius);
+}
+
+.vote-links {
+    /* color: rgba(0, 0, 0, 1); */
+    text-decoration: none;
+}
+
 
 /* Sign Up & Log In Forms styling */
 
 .div-parent {
     text-align: center;
+    color: var(--post-color);
 }
 
 .div-form {
     display: inline-block;
     margin: 40px;
     padding: 16px;
-    background-color: var(--post-header-color);
+    background-color: var(--post-background-color);
     border-radius: var(--corner-radius);
-    box-shadow: 6px 6px 15px;
+    box-shadow: 5px 5px 20px hsl(var(--color-hue), 10%, 0%);
 }
 
 .div-form h2 {
@@ -142,21 +165,67 @@ body {
     margin: 0px;
 }
 
-form .div-row {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-}
-
-form label{
-    text-align: right;
-    padding-right: 6px;
-}
-
-form input {
+.div-form form input {
     margin-bottom: 5px;
 }
 
-form .div-buttons {
+.div-button {
     text-align: right;
 }
 
+/* Profile page styling */
+
+.profile-page {
+    text-align: center;
+    color: var(--post-color);
+}
+
+.profile-form {
+    display: inline-block;
+    width: 22rem;
+    margin: 1rem;
+    padding: 5px;
+    background-color: var(--post-background-color);
+    border-radius: var(--corner-radius);
+    box-shadow: 5px 5px 20px hsl(var(--color-hue), 10%, 0%);
+}
+
+.profile-form h3 {
+    margin: 0px 0px 5px 0px;
+}
+.profile-form ul {
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0px;
+    padding: 0px;
+}
+.profile-form li {
+    margin: 5px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-form img {
+    width: 100%;
+}
+
+#profile-submit-button {
+    width: 100%;
+    height: 30px;
+}
+
+
+
+
+
+
+
+.footer {
+    margin: 6px;
+    padding: 0px;
+    text-align: center;
+    color: var(--color);
+}

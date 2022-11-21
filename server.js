@@ -16,8 +16,8 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.json())
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use('/favicon.ico', express.static('public/assets/img2.jpg'));
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use('/favicon.ico', express.static('public/assets/favicon.ico'));
 
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL)

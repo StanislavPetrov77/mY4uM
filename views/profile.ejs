@@ -1,6 +1,27 @@
 <% if (user != null) { %>
-    <h4>User ID: <%= user.id %></h4>
-    <h4>User name: <%= user.name %></h4>
-    <h4>Email: <%= user.email %></h4>
-    <h4>User image: <img style="width: 80px" src="<%= user.img %>" alt="Profile picture"></h4>
+    <div class="profile-page">
+        <form action="/profile" method="POST" class="profile-form" id="profile-form">
+            <ul>
+                <li><h3>User ID: <%= user.id %></h3></li>
+                <li>
+                    <label for="profile-username">User name</label>
+                    <input type="text" id="profile-username" name="name" value="<%= user.name %>" minlength="8" maxlength="30">
+                </li>
+                <li>
+                    <label for="profile-email">Email</label>
+                    <input type="text" id="profile-email" name="email" value="<%= user.email %>" minlength="8" maxlength="30">
+                </li>
+                <li>
+                    <label for="profile-password">Password</label>
+                    <div>
+                        <button type="button" id="profile-show-password-button">Show</button>
+                        <input type="password" id="profile-password" name="password" value="<%= user.password %>" minlength="8" maxlength="30">
+                    </div>
+                </li>
+                <li><input type="file" name="Change image"></li>
+                <li><img src="<%= user.img %>" alt="Profile picture"></li>
+                <li><button type="button" id="profile-submit-button">Save changes</button></li>
+            </ul>
+        </form>
+    </div>
     <% } %>
