@@ -1,0 +1,54 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header p {
+    position: sticky;
+    top: 0;
+    font-size: 32px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu {
+    background-color: var(--menu-background-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.menu li {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 6px 0px;
+    margin: 0px 0px;
+    border-right: 1px solid var(--border-color);
+    transition: 0.25s;
+}
+
+.menu li a {
+    color: var(--color);
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+.menu li:hover {
+    background-color: var(--background-color);
+    cursor: pointer;
+}
+
+.message {
+    margin: 6px;
+    padding: 0px;
+    text-align: center;
+    color: var(--color);
+}

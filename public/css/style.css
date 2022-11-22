@@ -1,0 +1,62 @@
+:root {
+    --corner-radius: 5px;
+
+    --color-hue: 220;
+
+    --color: hsl(calc(var(--color-hue) + 180), 50%, 95%);
+    --background-color: hsl(var(--color-hue), 100%, 15%);
+
+    --menu-background-color: hsl(var(--color-hue), 75%, 25%);
+    --border-color: hsl(var(--color-hue), 0%, 50%);
+
+    --post-color: hsl(var(--color-hue), 50%, 15%);
+    --post-background-color: hsl(var(--color-hue), 0%, 80%);
+    --post-content-color: hsl(var(--color-hue), 50%, 15%);
+    --post-content-background-color: hsl(var(--color-hue), 25%, 90%);
+}
+
+body {
+    color: var(--color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Sign Up & Log In Forms styling */
+
+.div-parent {
+    text-align: center;
+    color: var(--post-color);
+}
+
+.div-form {
+    display: inline-block;
+    margin: 40px;
+    padding: 16px;
+    background-color: var(--post-background-color);
+    border-radius: var(--corner-radius);
+    box-shadow: 5px 5px 20px hsl(var(--color-hue), 10%, 0%);
+}
+
+.div-form h2 {
+    padding-bottom: 10px;
+    margin: 0px;
+}
+
+.div-form form input {
+    margin-bottom: 5px;
+}
+
+.div-button {
+    text-align: right;
+}
+
+
+
+
+.footer {
+    margin: 6px;
+    padding: 0px;
+    text-align: center;
+    color: var(--color);
+}

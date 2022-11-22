@@ -3,13 +3,30 @@
         <h2>Sign Up</h2>
         <form action="/signup" method="POST">
             <div>
-                <input type="text" id="name" name="name" placeholder="Username" required>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Username"
+                    value="<%= typeof name != 'undefined' ? name : '' %>"
+                    required>
             </div>
             <div>
-                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    value="<%= typeof email != 'undefined' ? email : '' %>"
+                    required>
             </div>
             <div>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required>
             </div>
             <div class="div-button">
                 <button type="submit">Sign Up</button>                

@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema({
     },
     img: {
         type: String
+    },
+    posts: {
+        type: Number
     }
 })
 

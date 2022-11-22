@@ -1,0 +1,25 @@
+<head>
+    <link rel="stylesheet" href="css/posts.css">
+</head>
+
+<body>
+    <div id="posts-area">
+        <% if (posts != null) {
+            let user
+            posts.slice().reverse().forEach( (post) => {
+                user = users.find(u => u.id === post.uid) %>
+            <div class="post container">
+                <div class="post-header">
+                    <p><%= typeof user != 'undefined' ? user.name : 'Unnown user' %></p>
+                    <p><%= post.date %></p>
+                </div>
+                <div class="post-content">
+                    <div class="post-img-container">
+                        <img class="post-img" src="<%= typeof user != 'undefined' ? user.img : 'assets/Default user.jpg' %>">
+                    </div>
+                    <p class="post-text"><%= post.content %></p>
+                </div>
+            </div>
+        <% }) } %>
+    </div>
+</body>

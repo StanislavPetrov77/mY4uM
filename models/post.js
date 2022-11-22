@@ -1,12 +1,9 @@
 const mongoose = require('mongoose')
 
 const postSchema = new mongoose.Schema({
-    name: {
+    uid: {
         type: String,
         required: true
-    },
-    img: {
-        type: String
     },
     date: {
         type: String,
@@ -14,10 +11,6 @@ const postSchema = new mongoose.Schema({
     },
     content: {
         type: String,
-        required: true
-    },
-    votes: {
-        type: Number,
         required: true
     }
 })
