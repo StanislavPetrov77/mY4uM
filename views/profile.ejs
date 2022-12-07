@@ -1,45 +1,43 @@
-<head>
-    <link rel="stylesheet" href="css/profile.css">
-</head>
-
 <body>
-    <% if (user != null) { %>
-        <div class="profile-page">
-            <form action="/profile" method="POST" enctype="multipart/form-data" class="profile-form" id="profile-form">
-                <ul>
-                    <li><h3>User ID: <%= user.id %></h3></li>
-                    <li>
-                        <label for="profile-username">User name</label>
-                        <input type="text" id="profile-username" name="name" value="<%= user.name %>" minlength="8" maxlength="30">
-                    </li>
-                    <li>
-                        <label for="profile-email">Email</label>
-                        <input type="text" id="profile-email" name="email" value="<%= user.email %>" minlength="8" maxlength="30">
-                    </li>
-                    <li>
-                        <label for="profile-password">Password</label>
-                        <div class="password-container">
-                            <input type="password" id="profile-password" name="password" value="<%= user.password %>" minlength="8" maxlength="30">
-                            <i class="fa-solid fa-eye" id="eye"></i>
+    <% if (user) { %>
+        <div class="container">
+            <div class="card m-3">
+                <form action="/profile" method="POST" enctype="multipart/form-data" id="profile-form">
+                    <div class="row g-0">
+                        <div class="col-auto p-3">
+                            <img src="<%= user.img %>" alt="No profile picture" id="profile-picture" style="display: block; width: 180px;">
+                            <label for="profile-file"><u>Click to change</u></label>
+                            <input type="file" id="profile-file" name="profile-file" accept="image/png, image/jpeg">
+                            <div>
+                                <label for="profileTotalPosts" class="visually-hidden">Email</label>
+                                <input type="text" readonly class="form-control-plaintext" id="profileTotalPosts" value="Total posts: <%= user.posts %>">
+                            </div>
                         </div>
-                    </li>
-                    <li>
-                        <p>Total posts:</p>
-                        <p><%= user.posts %></p>
-                    </li>
-                    <li>
-                        <label for="profile-file">Change picture</label>
-                        <input type="file" id="profile-file" name="profile-file" accept="image/png, image/jpeg">
-                    </li>
-                    <li><img src="<%= user.img %>" alt="No profile picture" id="profile-picture"></li>
-                    <li>
-                        <div class="profile-reset-submit-buttons">
-                            <button type="reset">Reset</button>
-                            <button type="button" id="profile-submit-button">Save changes</button>
+                        <div class="col">
+                            <div class="card-body">
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control" id="profile-username" name="name" value="<%= user.name %>" minlength="8" maxlength="30">
+                                    <label for="profile-username">User name</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control" id="profile-email" name="email" value="<%= user.email %>" minlength="8" maxlength="30">
+                                    <label for="profile-email">Email</label>
+                                </div>
+                                <div class="form-floating mb-2" style="position: relative;">
+                                    <input style="width: 100%;" class="form-control" type="password" id="profile-password" name="password" value="<%= user.password %>" minlength="8" maxlength="30">
+                                    <label for="profile-password">Password</label>
+                                    <i style="position: absolute; top: 16%; left: 80px; color: rgba(0, 0, 0, 0.275);" class="fa-solid fa-eye" id="eye"></i>
+                                </div>
+                                <div class="">
+                                    <button type="reset" class="btn btn-danger">Reset</button>
+                                    <button type="button" class="btn btn-primary" id="profile-submit-button">Save changes</button>
+                                </div>
+                                <h6 class="my-1" style="display: inline;">ID: <%= user.id %></h6>
+                            </div>
                         </div>
-                    </li>
-                </ul>
-            </form>
+                    </div>
+                </form>
+            </div>
         </div>
     <% } %>
 </body>

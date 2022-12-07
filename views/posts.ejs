@@ -1,25 +1,19 @@
-<head>
-    <link rel="stylesheet" href="css/posts.css">
-</head>
-
 <body>
-    <div id="posts-area">
+    <div class="p-2">
         <% if (posts != null) {
             let user
             posts.slice().reverse().forEach( (post) => {
                 user = users.find(u => u.id === post.uid) %>
-            <div class="post container">
-                <div class="post-header">
-                    <p><%= typeof user != 'undefined' ? user.name : 'Unnown user' %></p>
-                    <p><%= post.date %></p>
-                </div>
-                <div class="post-content">
-                    <div class="post-img-container">
-                        <img class="post-img" src="<%= typeof user != 'undefined' ? user.img : 'assets/Default user.jpg' %>">
+                <div class="card mb-2 shadow">
+                    <div class="card-header p-1">
+                        <p class="mb-0"><%= typeof user != 'undefined' ? user.name : 'Unknown user' %>, <%= post.date %></p>
                     </div>
-                    <p class="post-text"><%= post.content %></p>
+                    <div class="card-text d-flex">
+                        <img class="img-thumbnail" style="width: 5rem; height: fit-content;" src="<%= typeof user != 'undefined' ? user.img : 'assets/Default user.jpg' %>">
+                        <p style="margin: 0.5rem 1rem;"><%= post.content %></p>
+                    </div>
                 </div>
-            </div>
-        <% }) } %>
+            <% }) 
+        } %>
     </div>
 </body>

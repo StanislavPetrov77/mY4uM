@@ -1,19 +1,23 @@
-<head>
-    <link rel="stylesheet" href="css/header.css">
-</head>
-
 <body>
-    <nav >
-        <header class="header">
-            <p>mYso6ial</p>
-            <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/newPost">New post</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="signup">Sign Up</a></li>
-                <li><a href="login">Log In</a></li>
-                <li><a href="/logout">Log Out</a></li>
-            </ul>
-        </header>
-    </nav>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">mY4uM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/">Posts</a>
+            <a class="nav-link" href="/newpost">New post</a>
+            <a class="nav-link" href="/profile">Profile</a>
+            <a class="nav-link" href="/signup">Sign up</a>
+            <a class="nav-link" href="/login">Log in</a>
+            <a class="nav-link" href="/logout">Log out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <% if (locals.message) { %> -->
+    <!-- <p class="mb-0" style="background-color: lightblue;"><%= message %></p> -->
+  <!-- <% } %> -->
 </body>
