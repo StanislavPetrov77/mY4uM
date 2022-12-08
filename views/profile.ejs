@@ -4,13 +4,13 @@
             <div class="card m-3">
                 <form action="/profile" method="POST" enctype="multipart/form-data" id="profile-form">
                     <div class="row g-0">
-                        <div class="col-auto p-3">
+                        <div class="col-auto p-3 text-center">
                             <img src="<%= user.img %>" alt="No profile picture" id="profile-picture" style="display: block; width: 180px;">
                             <label for="profile-file"><u>Click to change</u></label>
                             <input type="file" id="profile-file" name="profile-file" accept="image/png, image/jpeg">
                             <div>
                                 <label for="profileTotalPosts" class="visually-hidden">Email</label>
-                                <input type="text" readonly class="form-control-plaintext" id="profileTotalPosts" value="Total posts: <%= user.posts %>">
+                                <input type="text" readonly class="form-control-plaintext text-center" id="profileTotalPosts" value="Total posts: <%= user.posts %>">
                             </div>
                         </div>
                         <div class="col">
@@ -29,8 +29,8 @@
                                     <i style="position: absolute; top: 16%; left: 80px; color: rgba(0, 0, 0, 0.275);" class="fa-solid fa-eye" id="eye"></i>
                                 </div>
                                 <div class="">
-                                    <button type="reset" class="btn btn-danger">Reset</button>
-                                    <button type="button" class="btn btn-primary" id="profile-submit-button">Save changes</button>
+                                    <button type="reset" class="btn btn-danger m-1">Reset</button>
+                                    <button type="button" class="btn btn-primary m-1" id="profile-submit-button">Save changes</button>
                                 </div>
                                 <h6 class="my-1" style="display: inline;">ID: <%= user.id %></h6>
                             </div>
